@@ -22,4 +22,5 @@ use App\Http\Controllers\FormController; // 管理者トップページ
 Route::controller(FormController::class)->group(function () {
     Route::get('/', 'form')->name('form');
     Route::post('/confirm', 'confirm')->name('confirm');
+    Route::post('/send', 'send')->name('send');
 });

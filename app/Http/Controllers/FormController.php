@@ -22,4 +22,17 @@ class FormController extends Controller
                 'data',
             ));
     }
+    
+    public function send(Request $request)
+    {
+        $data = session()->all();
+        
+        // メール送信
+        $mailInfo['form'] = $data;
+        $mailInfo['subject']  = 'メール送信';
+        $mailInfo['template'] = 'emails.admin.send';
+        \App\Libraries\Email::send('admin', $mailInfo);
+        
+        dd('完了');
+    }
 }

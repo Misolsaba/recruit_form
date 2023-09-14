@@ -16,7 +16,7 @@
     <div class="container">
 
         <form action="{{ route('confirm') }}" method="POST">
-          @csrf
+            @csrf
             <div class="form-group mr-3">
                 <label>漢字氏名</label>
                 <div class="form-inline">
@@ -26,18 +26,13 @@
                     <input type="text" name="mei" class="form-control" id="mei">
                 </div>
             </div>
-            <div class="form-group mr-3">
-                <label>カナ氏名</label>
-                <div class="form-inline">
-                    <label for="InputName1">カナ姓:</label>
-                    <input type="text" name="sei_kana" class="form-control mr-2" id="sei_kana">
-                    <label for="InputName2">カナ名:</label>
-                    <input type="text" name="mei_kana" class="form-control" id="mei_kana">
-                </div>
+            <div class="form-group">
+                <label for="text">メールアドレス:</label>
+                <input type="email" name="email" class="form-control">
             </div>
 
             <div>
-                
+
                 <div id="base_parts">
                     <div class="form-group">
                         <label for="text">勤務先:</label>
@@ -51,9 +46,9 @@
                 <div id="add_area">
 
                 </div>
-                
+
                 <div class="mt-5">
-                  <button id="addForm" class="btn btn-primary" type="button">職歴を追加</button>
+                    <button id="addForm" class="btn btn-primary" type="button">職歴を追加</button>
                 </div>
             </div>
 

@@ -15,7 +15,7 @@
 <body>
     <div class="container">
 
-        <form action="" method="POST">
+        <form action="{{ route('send') }}" method="POST">
             @csrf
             <div class="form-group mr-3">
                 <label>漢字氏名</label>
@@ -24,9 +24,9 @@
                 </div>
             </div>
             <div class="form-group mr-3">
-                <label>カナ氏名</label>
+                <label>メールアドレス</label>
                 <div class="form-inline">
-                    {{ $data['sei_kana'] }}{{ $data['mei_kana'] }}
+                    {{ $data['email'] }}
                 </div>
             </div>
 
