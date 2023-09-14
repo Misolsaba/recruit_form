@@ -15,7 +15,7 @@
 <body>
     <div class="container">
 
-        <form>
+        <form method="POST">
             <div class="form-group mr-3">
                 <label>漢字氏名</label>
                 <div class="form-inline">
@@ -39,21 +39,23 @@
                 <button id="addForm" class="btn btn-primary" type="button">職歴を追加</button>
                 <div id="base_parts">
                     <div class="form-group">
-                        <label for="text1">勤務先:</label>
-                        <input type="text" name="job[]" class="form-control">
+                        <label for="text">勤務先:</label>
+                        <input type="text" name="job" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="textarea1">職務内容:</label>
+                        <label for="textarea">職務内容:</label>
                         <textarea id="textarea1" name="job_naiyo" class="form-control"></textarea>
                     </div>
                 </div>
                 <div id="add_area">
-                  
+
                 </div>
             </div>
 
+            <div class="mt-5">
+                <button type="submit" class="btn btn-primary">Submit</button>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
     </div>
     <script src="{{ asset('js/form.js') }}"></script>
