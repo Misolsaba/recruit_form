@@ -15,51 +15,53 @@
 <body>
     <div class="container">
 
-        <form action="{{ route('confirm') }}" method="POST">
-          @csrf
+        <form action="" method="POST">
+            @csrf
             <div class="form-group mr-3">
                 <label>漢字氏名</label>
                 <div class="form-inline">
-                    <label for="InputName1">姓:</label>
-                    <input type="text" name="sei" class="form-control mr-2" id="sei">
-                    <label for="InputName2">名:</label>
-                    <input type="text" name="mei" class="form-control" id="mei">
+                    {{ $data['sei'] }}{{ $data['mei'] }}
                 </div>
             </div>
             <div class="form-group mr-3">
                 <label>カナ氏名</label>
                 <div class="form-inline">
-                    <label for="InputName1">カナ姓:</label>
-                    <input type="text" name="sei_kana" class="form-control mr-2" id="sei_kana">
-                    <label for="InputName2">カナ名:</label>
-                    <input type="text" name="mei_kana" class="form-control" id="mei_kana">
+                    {{ $data['sei_kana'] }}{{ $data['mei_kana'] }}
                 </div>
             </div>
 
             <div>
-                
+
                 <div id="base_parts">
                     <div class="form-group">
-                        <label for="text">勤務先:</label>
-                        <input type="text" name="job" class="form-control">
+                        <label>勤務先:</label>
+                        {{ $data['job'] }}
                     </div>
                     <div class="form-group">
-                        <label for="textarea">職務内容:</label>
-                        <textarea id="textarea1" name="job_naiyo" class="form-control"></textarea>
+                        <label>職務内容:</label>
+                        {!! nl2br(e($data['job_naiyo'])) !!}
                     </div>
                 </div>
                 <div id="add_area">
+                    @for ($i = 1; $i <= 8; $i++)
+                        @if (!empty($data['job' . $i]))
+                            <h2>職歴{{ $i }}</h2>
+                            <div class="form-group">
+                                <label>勤務先:</label>
+                                {{ $data['job' . $i] }}
+                            </div>
+                            <div class="form-group">
+                                <label>職務内容:</label>
+                                {!! nl2br(e($data['job_naiyo' . $i])) !!}
+                            </div>
+                        @endif
+                    @endfor
+                </div>
 
-                </div>
-                
-                <div class="mt-5">
-                  <button id="addForm" class="btn btn-primary" type="button">職歴を追加</button>
-                </div>
             </div>
 
             <div class="mt-5">
-                <button type="submit" class="btn btn-primary">Submit</button>
-
+                <button type="submit" class="btn btn-primary">送信する</button>
             </div>
         </form>
     </div>

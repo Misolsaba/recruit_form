@@ -21,4 +21,5 @@ use App\Http\Controllers\FormController; // 管理者トップページ
 // コース管理
 Route::controller(FormController::class)->group(function () {
     Route::get('/', 'form')->name('form');
+    Route::post('/confirm', 'confirm')->name('confirm');
 });
